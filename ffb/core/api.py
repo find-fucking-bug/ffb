@@ -13,13 +13,11 @@ class ErrorAnalyzer:
         Generate the AI prompt with the given traceback.
         """
         prompt = f"""
-        Analyze the following error message, provide a brief summary of what caused the issue,
-        and offer a clear solution to resolve it:
+        Error Summary: Briefly describe the cause of the error.
+        Solution: Briefly explain how to resolve it.
 
+        Error:
         {self.traceback}
-
-        1. Error Summary: Provide a concise explanation of the error, describing its cause and the component it affects.
-        2. Solution: Outline the steps or code changes required to fix the issue.
         """
         return prompt
 
