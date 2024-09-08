@@ -1,5 +1,5 @@
 import os
-from api import ErrorAnalyzer
+from ffb.core.api import ErrorAnalyzer
 
 
 class Command:
