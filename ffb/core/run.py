@@ -1,4 +1,5 @@
 import os
+import subprocess
 from ffb.core.api import ErrorAnalyzer
 
 
@@ -45,6 +46,24 @@ class Shell:
         return None
 
 
+def execute_command(command):
+    try:
+        result = subprocess.run(
+            command,
+            shell=True,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            text=True,
+        )
+
+        stdout = result.stdout.strip()
+        stderr = result.stderr.strip()
+        return stdout, stderr
+    except Exception as e:
+        print(f"Failed to execute command: {e}")
+        return None, None
+
+
 def main():
     try:
         shell = Shell.get_current_shell()
@@ -55,10 +74,16 @@ def main():
         last_command = shell_history.get_last_command()
 
         if last_command:
-            analyzer = ErrorAnalyzer(last_command)
-            analyzer.analyze_error()
+            stdout, stderr = execute_command(last_command)
+            if stderr:
+                analyzer = ErrorAnalyzer(stderr)
+                analyzer.analyze_error()
         else:
             print("No command found in history.")
 
     except ValueError as e:
         print(e)
+
+
+if __name__ == "__main__":
+    main()

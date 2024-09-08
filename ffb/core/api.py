@@ -14,7 +14,7 @@ class ErrorAnalyzer:
         """
         prompt = f"""
         Error Summary: Briefly explain the cause of the error.
-        Solution: Briefly explain how to resolve it, including necessary steps or code examples.
+        Solution: Provide a code example first, followed by a brief explanation of how it resolves the issue.
 
         Error:
         {self.traceback}
