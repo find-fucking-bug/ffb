@@ -1,4 +1,5 @@
 import os
+from api import ErrorAnalyzer
 
 
 class Command:
@@ -45,7 +46,6 @@ class Shell:
 
 
 def main():
-    print("yaz")
     try:
         shell = Shell.get_current_shell()
         if not shell:
@@ -55,7 +55,8 @@ def main():
         last_command = shell_history.get_last_command()
 
         if last_command:
-            print(f"Last command: {last_command}")
+            analyzer = ErrorAnalyzer(last_command)
+            analyzer.analyze_error()
         else:
             print("No command found in history.")
 
