@@ -13,8 +13,8 @@ class ErrorAnalyzer:
         Generate the AI prompt with the given traceback.
         """
         prompt = f"""
-        Error Summary: Briefly describe the cause of the error.
-        Solution: Briefly explain how to resolve it.
+        Error Summary: Briefly explain the cause of the error.
+        Solution: Briefly explain how to resolve it, including necessary steps or code examples.
 
         Error:
         {self.traceback}
@@ -43,21 +43,3 @@ class ErrorAnalyzer:
 
         except Exception as e:
             print(f"An error occurred: {e}")
-
-
-if __name__ == "__main__":
-    traceback_message = """
-    Traceback (most recent call last):
-      File "/Users/aliymnx/Desktop/ffb/ffb/core/deneme.py", line 5, in <module>
-        main()
-      File "/Users/aliymnx/Desktop/ffb/ffb/core/deneme.py", line 2, in main
-        print(5+U)
-                ^
-    NameError: name 'U' is not defined
-    """
-
-    # Create an instance of the ErrorAnalyzer class and pass the traceback message
-    analyzer = ErrorAnalyzer(traceback_message)
-
-    # Analyze the error
-    analyzer.analyze_error()
