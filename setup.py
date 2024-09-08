@@ -10,15 +10,15 @@ else:
 
 setup(
     name="ffb",
-    version="0.0.1",
+    version="0.0.4",
     author="Ali Yaman, Umut Deniz",
     author_email="aliymn.db@gmail.com, umutdeniz609@gmail.com",
-    description="Find Funcking Bug",
+    description="Find Fucking Bug",
     license="MIT",
     long_description_content_type="text/markdown",
     long_description=README,
-    keywords="Find Funcking Bug",
-    packages=["ffb"],
+    keywords="Find Fucking Bug",
+    packages=["ffb", "ffb.core"],
     url="https://github.com/find-fucking-bug",
     download_url="https://github.com/find-fucking-bug",
     install_requires=[],
@@ -44,5 +44,5 @@ setup(
         "Programming Language :: Python :: 3.11",
         "Programming Language :: Python :: 3.12",
     ],
-    entry_points={"console_scripts": ["ff=ff.src:main"]},
+    entry_points={"console_scripts": ["ffb=ffb.core.run:main"]},
 )
