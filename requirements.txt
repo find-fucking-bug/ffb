@@ -3,4 +3,4 @@ pydantic==2.8.2
 pydantic-settings==2.4.0
 pytest==8.3.2
 pytest-cov==5.0.0
-tqdmtqdm==4.66.5
+tqdm==4.66.5

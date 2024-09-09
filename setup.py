@@ -25,7 +25,7 @@ setup(
         "ollama==0.3.2",
         "pydantic==2.8.2",
         "pydantic-settings==2.4.0",
-        "tqdmtqdm==4.66.5",
+        "tqdm==4.66.5",
     ],
     include_package_data=True,
     zip_safe=False,
