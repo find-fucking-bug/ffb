@@ -10,7 +10,7 @@ else:
 
 setup(
     name="ffb",
-    version="0.0.1",
+    version="0.0.2",
     author="Ali Yaman, Umut Deniz",
     author_email="aliymn.db@gmail.com, umutdeniz609@gmail.com",
     description="Find Fucking Bug",
@@ -28,7 +28,7 @@ setup(
         "Development Status :: 3 - Alpha",
         "Environment :: Web Environment",
         "Intended Audience :: Developers",
-        "License :: OSI Approved :: MIT License",
+        "License :: OSI Approved :: GNU General Public License (GPL)",
         "Operating System :: OS Independent",
         "Programming Language :: Python :: 3.0",
         "Programming Language :: Python :: 3.1",
