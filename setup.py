@@ -21,7 +21,7 @@ setup(
     packages=["ffb", "ffb.core", "ffb.utils", "ffb.helper"],
     url="https://github.com/find-fucking-bug",
     download_url="https://github.com/find-fucking-bug",
-    install_requires=[],
+    install_requires=["ollama==0.3.2", "pydantic==2.8.2", "pydantic-settings==2.4.0"],
     include_package_data=True,
     zip_safe=False,
     classifiers=[
