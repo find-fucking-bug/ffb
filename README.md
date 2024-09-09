@@ -2,7 +2,9 @@
 
 **FFB** is a Python package designed to simplify debugging by analyzing your terminal output and providing concise solutions and explanations for errors. Whether you're new to coding or an experienced developer, FFB aims to reduce the time spent deciphering cryptic error messages and helps you find solutions faster.
 
-<img align="left" width="100" height="100" src="https://picsum.photos/100/100">
+</hr>
+<img align="left"  src="https://github.com/find-fucking-bug/ffb/blob/ffb-3/images/result.gif?raw=true">
+</hr>
 
 
 ## Features
@@ -54,27 +56,22 @@ ffb
 
 FFB will analyze the error and provide a detailed solution:
 
-```bash
-╭───────────────────────────────────────────────────────────────────────────────────────────────────── Error Analysis Response ─────────────────────────────────────────────────────────────────────────────────────────────────────╮
-│ Error Summary The error occurs when trying to divide a number by zero.                                                                                                                                                            │
-│                                                                                                                                                                                                                                   │
-│ Solution                                                                                                                                                                                                                          │
-│                                                                                                                                                                                                                                   │
-│  def divide_numbers(a, b):                                                                                                                                                                                                        │
-│      if b == 0:                                                                                                                                                                                                                   │
-│          print("Error: Division by zero is not allowed.")                                                                                                                                                                         │
-│      else:                                                                                                                                                                                                                        │
-│          result = a / b                                                                                                                                                                                                           │
-│          print(f"The result of the division is {result}")                                                                                                                                                                         │
-│                                                                                                                                                                                                                                   │
-│  divide_numbers(10, 0)                                                                                                                                                                                                            │
-│                                                                                                                                                                                                                                   │
-│ In this code example, we added a simple check to see if b (the divisor) is equal to zero. If it is, we print an error message instead of attempting to perform the division. This prevents the ZeroDivisionError from occurring.  │
-│                                                                                                                                                                                                                                   │
-│ Explanation This solution resolves the issue by handling the special case where the divisor is zero. By adding a conditional statement to check for this scenario, we can avoid attempting to divide by zero and prevent the      │
-│ error from occurring.                                                                                                                                                                                                             │
-╰───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────                                                                                                                                                                                                        │
-╰───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+```python
+Error Summary The error occurs when attempting to divide a number by zero, which is undefined.
+
+Solution
+
+def divide_numbers(a, b):
+   if b == 0:
+      return "Error: Division by zero is not allowed."
+  else:
+    result = a / b
+    return result
+
+print(divide_numbers(10, 0))
+
+
+Explanation To resolve this issue, we've added a simple check in the divide_numbers function to ensure that the divisor (b) is not zero. If it is zero, the function returns an error message instead of attempting the division, thus preventing the ZeroDivisionError.
 ```
 
 ## Contributing
