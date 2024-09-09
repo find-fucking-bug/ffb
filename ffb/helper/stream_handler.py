@@ -44,7 +44,7 @@ class StreamResponseHandler:
                 # Dynamically adjust total chunks if needed
                 if self.chunk_count >= pbar.total:
                     pbar.total += (
-                        50  # Extend the progress bar if more chunks are expected
+                        25  # Extend the progress bar if more chunks are expected
                     )
                     pbar.refresh()
 
