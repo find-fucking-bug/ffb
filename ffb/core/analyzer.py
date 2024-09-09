@@ -1,9 +1,9 @@
 from ollama import Client
-from ffb.utils.conf import settings
 from ffb.helper.stream_handler import StreamResponseHandler
 from rich.console import Console
 from rich.panel import Panel
 from rich.markdown import Markdown
+import os
 
 
 class ErrorAnalyzer:
@@ -13,6 +13,7 @@ class ErrorAnalyzer:
         """
         self.output = output
         self.console = Console()
+        self.ollama_api_url = os.getenv("OLLAMA_API_URL")
 
     def generate_prompt(self):
         """
@@ -36,7 +37,7 @@ class ErrorAnalyzer:
             prompt = self.generate_prompt()
 
             # Send the chat request with the generated prompt and enable streaming
-            client = Client(host=settings.OLLAMA_API_URL)
+            client = Client(host=self.ollama_api_url)
             stream = client.chat(
                 model="llama3.1",
                 messages=[{"role": "user", "content": prompt}],
