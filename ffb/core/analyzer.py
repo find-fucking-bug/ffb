@@ -38,7 +38,6 @@ class ErrorAnalyzer:
 
             # Send the chat request with the generated prompt and enable streaming
             client = Client(host=self.ollama_api_url)
-            print("self.ollama_api_url: ", self.ollama_api_url)
             stream = client.chat(
                 model="llama3.1",
                 messages=[{"role": "user", "content": prompt}],

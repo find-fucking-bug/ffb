@@ -10,7 +10,7 @@ else:
 
 setup(
     name="ffb",
-    version="0.0.5",
+    version="0.0.6",
     author="Ali Yaman, Umut Deniz",
     author_email="aliymn.db@gmail.com, umutdeniz609@gmail.com",
     description="Find Fucking Bug",
@@ -23,8 +23,6 @@ setup(
     download_url="https://github.com/find-fucking-bug",
     install_requires=[
         "ollama==0.3.2",
-        "pydantic==2.8.2",
-        "pydantic-settings==2.4.0",
         "tqdm==4.66.5",
         "rich==13.8.0",
     ],
