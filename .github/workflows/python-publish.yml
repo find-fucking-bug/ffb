@@ -37,3 +37,9 @@ jobs:
       with:
         user: __token__
         password: ${{ secrets.PYPI_API_TOKEN }}
+
+    - name: Set environment variable for Ollama API URL
+      env:
+        OLLAMA_API_URL: ${{ secrets.OLLAMA_API_URL }}
+      run: |
+        echo "OLLAMA_API_URL is set to: $OLLAMA_API_URL"
