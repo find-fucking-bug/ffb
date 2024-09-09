@@ -1,10 +1,12 @@
 # FFB: Find Fucking Bug
-[![pypi](https://img.shields.io/pypi/v/ffb.svg?style=flat)](https://pypi.python.org/pypi/ffb)
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
-[![ci](https://github.com/find-fucking-bug/ffb/workflows/CI/badge.svg)](https://github.com/find-fucking-bug/ffb/actions?query=workflow:CI)
+[![pypi](https://img.shields.io/pypi/v/ffb.svg?style=for-the-badge)](https://pypi.python.org/pypi/ffb)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg?style=for-the-badge)](https://www.gnu.org/licenses/gpl-3.0)
 <a href="https://pypi.org/project/ffb" target="_blank">
-    <img src="https://img.shields.io/pypi/pyversions/ffb.svg?color=%2334D058" alt="Supported Python versions">
+    <img src="https://img.shields.io/pypi/pyversions/ffb.svg" alt="Supported Python versions">
 </a>
+![Code Style - Ruff](https://img.shields.io/badge/code%20style-ruff-30173D.svg?style=for-the-badge)
+![Pre Commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white&style=for-the-badge)
+[![ci](https://github.com/find-fucking-bug/ffb/workflows/CI/badge.svg)](https://github.com/find-fucking-bug/ffb/actions?query=workflow:CI)
 
 **FFB** is a Python package designed to simplify debugging by analyzing your terminal output and providing concise solutions and explanations for errors. Whether you're new to coding or an experienced developer, FFB aims to reduce the time spent deciphering cryptic error messages and helps you find solutions faster.
 
