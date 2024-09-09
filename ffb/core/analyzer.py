@@ -1,23 +1,24 @@
 from ollama import Client
+from ffb.utils.conf import settings
 
 
 class ErrorAnalyzer:
-    def __init__(self, traceback):
+    def __init__(self, output):
         """
-        Initialize the ErrorAnalyzer with the given traceback.
+        Initialize the ErrorAnalyzer with the given output.
         """
-        self.traceback = traceback
+        self.output = output
 
     def generate_prompt(self):
         """
-        Generate the AI prompt with the given traceback.
+        Generate the AI prompt with the given output.
         """
         prompt = f"""
         Error Summary: Briefly explain the cause of the error.
         Solution: Provide a code example first, followed by a brief explanation of how it resolves the issue.
 
         Error:
-        {self.traceback}
+        {self.output}
         """
         return prompt
 
@@ -30,7 +31,7 @@ class ErrorAnalyzer:
             prompt = self.generate_prompt()
 
             # Send the chat request with the generated prompt and enable streaming
-            client = Client(host="http://localhost:11434")
+            client = Client(host=settings.OLLAMA_API_URL)
             stream = client.chat(
                 model="llama3.1",
                 messages=[{"role": "user", "content": prompt}],

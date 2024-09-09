@@ -1,6 +1,6 @@
 import os
 import subprocess
-from ffb.core.api import ErrorAnalyzer
+from ffb.core.analyzer import ErrorAnalyzer
 
 
 class Command:

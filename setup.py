@@ -10,7 +10,7 @@ else:
 
 setup(
     name="ffb",
-    version="0.0.4",
+    version="0.0.5",
     author="Ali Yaman, Umut Deniz",
     author_email="aliymn.db@gmail.com, umutdeniz609@gmail.com",
     description="Find Fucking Bug",
@@ -18,7 +18,7 @@ setup(
     long_description_content_type="text/markdown",
     long_description=README,
     keywords="Find Fucking Bug",
-    packages=["ffb", "ffb.core"],
+    packages=["ffb", "ffb.core", "ffb.utils", "ffb.helper"],
     url="https://github.com/find-fucking-bug",
     download_url="https://github.com/find-fucking-bug",
     install_requires=[],
