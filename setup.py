@@ -26,6 +26,7 @@ setup(
         "pydantic==2.8.2",
         "pydantic-settings==2.4.0",
         "tqdm==4.66.5",
+        "rich==13.8.0",
     ],
     include_package_data=True,
     zip_safe=False,
