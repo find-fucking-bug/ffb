@@ -51,7 +51,11 @@ class ErrorAnalyzer:
 
             # Display the response using rich in markdown format
             self.console.print(
-                Panel.fit(markdown_response, title="Error Analysis Response")
+                Panel.fit(
+                    markdown_response,
+                    title="Error Analysis Response",
+                    border_style="green",
+                )
             )
 
         except Exception as e:
