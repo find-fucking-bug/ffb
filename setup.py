@@ -18,7 +18,7 @@ setup(
     long_description_content_type="text/markdown",
     long_description=README,
     keywords="Find Fucking Bug",
-    packages=["ffb", "ffb.core", "ffb.utils", "ffb.helper"],
+    packages=["ffb", "ffb.core", "ffb.helper"],
     url="https://github.com/find-fucking-bug",
     download_url="https://github.com/find-fucking-bug",
     install_requires=[
