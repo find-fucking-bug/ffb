@@ -1,4 +1,5 @@
 # FFB: Find Fucking Bug
+[![pypi](https://img.shields.io/pypi/v/ffb.svg?style=flat)](https://pypi.python.org/pypi/ffb)
 
 **FFB** is a Python package designed to simplify debugging by analyzing your terminal output and providing concise solutions and explanations for errors. Whether you're new to coding or an experienced developer, FFB aims to reduce the time spent deciphering cryptic error messages and helps you find solutions faster.
 
