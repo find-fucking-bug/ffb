@@ -23,7 +23,6 @@ setup(
     download_url="https://github.com/find-fucking-bug",
     install_requires=[
         "ollama==0.3.2",
-        "tqdm==4.66.5",
         "rich==13.8.0",
     ],
     include_package_data=True,
