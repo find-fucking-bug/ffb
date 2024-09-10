@@ -15,13 +15,14 @@
 
 **FFB** is a Python package designed to simplify debugging by analyzing your terminal output and providing concise solutions and explanations for errors. Whether you're new to coding or an experienced developer, FFB aims to reduce the time spent deciphering cryptic error messages and helps you find solutions faster.
 
-</hr>
-<img align="left" style="margin-bottom:5%"  src="images/ffb-demo.png?raw=true">
-</hr></br>
+&nbsp;
 
-</hr>
+<img align="left" style="margin-bottom:5%"  src="images/ffb-demo.png?raw=true">
+
+&nbsp;
+
 <img align="left" style="margin-bottom:5%"  src="images/ffb-demo.gif?raw=true">
-</hr></br>
+&nbsp;
 
 
 ## TODO
