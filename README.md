@@ -1,4 +1,5 @@
 # FFB: Find Fucking Bug
+
 [![pypi](https://img.shields.io/pypi/v/ffb.svg?style=for-the-badge)](https://pypi.python.org/pypi/ffb)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg?style=for-the-badge)](https://www.gnu.org/licenses/gpl-3.0)
 <a href="https://pypi.org/project/ffb" target="_blank">
@@ -7,6 +8,10 @@
 ![Code Style - Ruff](https://img.shields.io/badge/code%20style-ruff-30173D.svg?style=for-the-badge)
 ![Pre Commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white&style=for-the-badge)
 [![ci](https://github.com/find-fucking-bug/ffb/workflows/CI/badge.svg?style=for-the-badge)](https://github.com/find-fucking-bug/ffb/actions?query=workflow:CI)
+
+<p align="center">
+  <img src="https://avatars.githubusercontent.com/u/180852664?s=200&v=4" alt="FFB Logo">
+</p>
 
 **FFB** is a Python package designed to simplify debugging by analyzing your terminal output and providing concise solutions and explanations for errors. Whether you're new to coding or an experienced developer, FFB aims to reduce the time spent deciphering cryptic error messages and helps you find solutions faster.
 
