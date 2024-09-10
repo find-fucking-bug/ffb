@@ -19,7 +19,7 @@ class StreamResponseHandler:
         self.stream = stream
         self.response_parts = []
         self.total_chunks = total_chunks
-        self.chunk_count = 2
+        self.chunk_count = 1
 
     def process_stream(self):
         """
@@ -27,26 +27,30 @@ class StreamResponseHandler:
         to `response_parts` and updates the progress bar. The total chunks in the progress bar are dynamically
         adjusted if more chunks are received than initially estimated.
         """
-        # Initialize the progress bar
+        # Initialize the progress bar and immediately set it to 5%
+        initial_progress = 5
         with tqdm(
             total=self.total_chunks, desc="Loading response...", ncols=100
         ) as pbar:
+            pbar.update(initial_progress)  # Quick update to 5%
+            self.chunk_count += (
+                initial_progress  # Reflect the initial progress in the chunk count
+            )
+
             for chunk in self.stream:
                 content = chunk["message"]["content"]
-                self.response_parts.append(
-                    content
-                )  # Append each chunk's content to the response list
+                self.response_parts.append(content)
                 self.chunk_count += 1
-
-                # Update the progress bar as each chunk is received
                 pbar.update(1)
 
-                # Dynamically adjust total chunks if needed
-                if self.chunk_count >= (pbar.total - 10):
-                    pbar.total += (
-                        9  # Extend the progress bar if more chunks are expected
-                    )
+                # Dynamically increase the total if necessary
+                if self.chunk_count >= (pbar.total - 15):
+                    pbar.total += 1
                     pbar.refresh()
+
+            # Speed up the last 5% to finish quickly
+            remaining = pbar.total - pbar.n
+            pbar.update(remaining)
 
     def get_full_response(self):
         """
