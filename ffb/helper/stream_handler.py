@@ -19,7 +19,7 @@ class StreamResponseHandler:
         self.stream = stream
         self.response_parts = []
         self.total_chunks = total_chunks
-        self.chunk_count = 0
+        self.chunk_count = 2
 
     def process_stream(self):
         """
