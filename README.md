@@ -82,6 +82,15 @@ print(divide_numbers(10, 0))
 Explanation To resolve this issue, we've added a simple check in the divide_numbers function to ensure that the divisor (b) is not zero. If it is zero, the function returns an error message instead of attempting the division, thus preventing the ZeroDivisionError.
 ```
 
+## Self-hosting with Ollama
+
+To run FFB in a self-hosted environment using Ollama, you’ll need to set the OLLAMA_API_URL environment variable. By default, you can set it to http://localhost:11434 if you’re running Ollama locally.
+
+```bash
+export OLLAMA_API_URL=http://localhost:11434
+```
+Ensure Ollama is running on your machine. You can find the setup and installation instructions for Ollama by visiting the [Ollama](https://ollama.com/) GitHub repository.
+
 ## Contributing
 
 If you’d like to contribute to FFB, feel free to submit issues and pull requests on the GitHub repository.
