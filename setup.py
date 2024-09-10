@@ -10,7 +10,7 @@ else:
 
 setup(
     name="ffb",
-    version="0.0.8",
+    version="0.0.9",
     author="Ali Yaman, Umut Deniz",
     author_email="aliymn.db@gmail.com, umutdeniz609@gmail.com",
     description="Find Fucking Bug",

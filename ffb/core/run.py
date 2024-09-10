@@ -1,5 +1,9 @@
+import argparse
 import os
 import subprocess
+
+import ffb
+
 from ffb.core.analyzer import ErrorAnalyzer
 
 
@@ -106,6 +110,16 @@ def main():
     """
     Main function to get the last shell command, execute it, and handle any errors.
     """
+    parser = argparse.ArgumentParser(
+        description="A script to show version information."
+    )
+    parser.add_argument(
+        "--version",
+        action="version",
+        version=f"%(prog)s {ffb.__version__}",
+        help="Show the program version",
+    )
+    parser.parse_args()
     try:
         shell = Shell.get_current_shell()
         if not shell:
