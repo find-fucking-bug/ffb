@@ -1,4 +1,5 @@
-from tqdm import tqdm
+from rich.progress import Progress, BarColumn, TextColumn
+from rich.console import Console
 
 
 class StreamResponseHandler:
@@ -27,30 +28,38 @@ class StreamResponseHandler:
         to `response_parts` and updates the progress bar. The total chunks in the progress bar are dynamically
         adjusted if more chunks are received than initially estimated.
         """
-        # Initialize the progress bar and immediately set it to 5%
-        initial_progress = 5
-        with tqdm(
-            total=self.total_chunks, desc="Loading response...", ncols=100
-        ) as pbar:
-            pbar.update(initial_progress)  # Quick update to 5%
-            self.chunk_count += (
-                initial_progress  # Reflect the initial progress in the chunk count
-            )
+        # Initialize the progress bar and set initial progress
+        console = Console()
 
+        with Progress(
+            TextColumn("[bold blue]{task.description}"),
+            BarColumn(),
+            TextColumn("[progress.percentage]{task.percentage:>3.0f}%"),
+            console=console,
+        ) as progress:
+            task = progress.add_task("Fetching results ...", total=self.total_chunks)
+
+            # Start with initial progress at 5%
+            initial_progress = 5
+            progress.update(task, advance=initial_progress)
+            self.chunk_count += initial_progress
+
+            # Iterate over the chunks from the stream
             for chunk in self.stream:
                 content = chunk["message"]["content"]
                 self.response_parts.append(content)
                 self.chunk_count += 1
-                pbar.update(1)
+
+                # Update the progress bar
+                progress.update(task, advance=1)
 
                 # Dynamically increase the total if necessary
-                if self.chunk_count >= (pbar.total - 15):
-                    pbar.total += 1
-                    pbar.refresh()
+                if self.chunk_count >= (progress.tasks[task].total - 15):
+                    progress.update(task, total=progress.tasks[task].total + 1)
 
             # Speed up the last 5% to finish quickly
-            remaining = pbar.total - pbar.n
-            pbar.update(remaining)
+            remaining = progress.tasks[task].total - progress.tasks[task].completed
+            progress.update(task, advance=remaining)
 
     def get_full_response(self):
         """
