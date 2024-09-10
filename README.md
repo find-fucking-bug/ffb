@@ -12,7 +12,7 @@
 
 </hr>
 <img align="left" style="margin-bottom:5%"  src="https://github.com/find-fucking-bug/ffb/blob/main/images/ffb-terminal-demo.gif?raw=true">
-</hr>
+</hr></br>
 
 
 ## TODO
