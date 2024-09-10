@@ -54,8 +54,10 @@ class ErrorAnalyzer:
             self.console.print(
                 Panel.fit(
                     markdown_response,
-                    title="Error Analysis Response",
+                    title="Error Analysis",
                     border_style="green",
+                    padding=(1, 2),
+                    safe_box=True,
                 )
             )
 

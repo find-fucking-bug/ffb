@@ -1,4 +1,5 @@
-from tqdm import tqdm
+from rich.progress import Progress, BarColumn, TextColumn
+from rich.console import Console
 
 
 class StreamResponseHandler:
@@ -19,7 +20,7 @@ class StreamResponseHandler:
         self.stream = stream
         self.response_parts = []
         self.total_chunks = total_chunks
-        self.chunk_count = 0
+        self.chunk_count = 1
 
     def process_stream(self):
         """
@@ -27,26 +28,38 @@ class StreamResponseHandler:
         to `response_parts` and updates the progress bar. The total chunks in the progress bar are dynamically
         adjusted if more chunks are received than initially estimated.
         """
-        # Initialize the progress bar
-        with tqdm(
-            total=self.total_chunks, desc="Loading response...", ncols=100
-        ) as pbar:
+        # Initialize the progress bar and set initial progress
+        console = Console()
+
+        with Progress(
+            TextColumn("[bold blue]{task.description}"),
+            BarColumn(),
+            TextColumn("[progress.percentage]{task.percentage:>3.0f}%"),
+            console=console,
+        ) as progress:
+            task = progress.add_task("Fetching results ...", total=self.total_chunks)
+
+            # Start with initial progress at 5%
+            initial_progress = 5
+            progress.update(task, advance=initial_progress)
+            self.chunk_count += initial_progress
+
+            # Iterate over the chunks from the stream
             for chunk in self.stream:
                 content = chunk["message"]["content"]
-                self.response_parts.append(
-                    content
-                )  # Append each chunk's content to the response list
+                self.response_parts.append(content)
                 self.chunk_count += 1
 
-                # Update the progress bar as each chunk is received
-                pbar.update(1)
+                # Update the progress bar
+                progress.update(task, advance=1)
 
-                # Dynamically adjust total chunks if needed
-                if self.chunk_count >= (pbar.total - 10):
-                    pbar.total += (
-                        9  # Extend the progress bar if more chunks are expected
-                    )
-                    pbar.refresh()
+                # Dynamically increase the total if necessary
+                if self.chunk_count >= (progress.tasks[task].total - 15):
+                    progress.update(task, total=progress.tasks[task].total + 1)
+
+            # Speed up the last 5% to finish quickly
+            remaining = progress.tasks[task].total - progress.tasks[task].completed
+            progress.update(task, advance=remaining)
 
     def get_full_response(self):
         """
